@@ -3,9 +3,18 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const [click, setClick] = useState(false);
-
+  const [button, setButton] = useState(true);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+
+    const showButton = () =>{
+        if(window.innerWidth <= 960){
+            setButton(false)
+        }else{
+            setButton(true)
+        }
+    }
 
   return (
     <>
@@ -25,23 +34,36 @@ function Navbar() {
             </li>
 
             <li className="nav-item">
-              <Link to="/services" className="nav-links" onClikc={closeMobileMenu}>
+              <Link
+                to="/services"
+                className="nav-links"
+                onClikc={closeMobileMenu}
+              >
                 Services
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link to="/products" className="nav-links" onClikc={closeMobileMenu}>
+              <Link
+                to="/products"
+                className="nav-links"
+                onClikc={closeMobileMenu}
+              >
                 Products
               </Link>
             </li>
 
-            <li className='nav-item'>
-                    <Link to='/sign-up' className='nav-links-mobile' onClikc ={closeMobileMenu}>
-                        Sign Up
-                    </Link>
-                </li>
+            <li className="nav-item">
+              <Link
+                to="/sign-up"
+                className="nav-links-mobile"
+                onClikc={closeMobileMenu}
+              >
+                Sign Up
+              </Link>
+            </li>
           </ul>
+          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
         </div>
       </nav>
     </>
