@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../App.css'
-import background from 'public/images/img-2.jpg';
+
 
 function Products() {
     return (
